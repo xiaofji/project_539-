@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Xiaofan's {{title}}</title>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="static/css/style.css">
+	<script>
+	function changeimage(id)
+	{
+		document.getElementById("displayimg").src = "static/img/"+id+"cai.jpg";
+		var elems = document.getElementsByClassName("dish");
+		for(var i = 0; i < elems.length; i++) {
+    	elems[i].style.backgroundColor = "rgba(0,0,0,0)";
+		}
+		document.getElementById(id).style.backgroundColor = "rgba(0,0,0,0.2)";
+	}
+	</script>
+</head>
+<body>
+
+<header>
+	<nav class="navbar">
+		<div class="navbar-header">
+	    <a class="navbar-brand" href="./index.html">{{title}}</a>
+	  </div>
+	  <div id = "logsign">
+				<form id = "login" action="action_page.php" >
+  			E-mail:
+  			<input type="text" name="email" value="">
+  			Password:
+  			<input type="text" name="password" value="">
+  			<input type="submit" value="Login">
+			</form>
+			<button id = "signup">Signup</buttion>
+	  </div>
+		</nav>
+
+		 <h1 class = "text-center">Chinese Cooking Alchemy</h1>
+	</header>
+
+	{%block content%}
+	your content
+	{%endblock%}
+
+<footer>
+	<div class = "footercontant">
+				<form class = "message" action="xiaofji@umich.edu" method="post" enctype="text/plain">
+					<h4 class = "messaget">Drop me a message here</h4>
+					<table>
+						<tr>
+							<td><div>Name:</div></td>
+							<td><input type="text" name="name" size="20"></td>
+							<td><input type="submit" name="submit" value="Submit"></td>
+						</tr>
+						<tr>
+							<td><div>Email:</div></td>
+							<td><input type="text" name="email" size="20"></td>
+							<td><input type="reset" name="reset" value="Reset"></td>
+						</tr>
+						<tr>
+							<td><div>Message:</div></td>
+							<td><textarea name="Message" cols="25" wrap="hard" rows="2"></textarea></td>
+						</tr>
+					</table>
+				</form>
+
+      	<ul class="nav nav-stacked pull-right">
+					<li><a href="https://plus.google.com/u/1/102008562030379446121/posts"><i class="fa fa-google-plus fa-lg fa-inverse"></i></a></li>
+					<li><a href="https://www.facebook.com/vivienne.ji.9"><i class="fa fa-facebook fa-lg fa-inverse"></i></a></li>
+					<li><a href="https://instagram.com/zherzher1992/"><i class="fa fa-instagram fa-lg fa-inverse"></i></a></li>
+					<li><a href="https://www.linkedin.com/profile/view?id=AAIAABGpTxIBuzbOv72Yslp24WNdqVVbkyDCkzo&trk=nav_responsive_tab_profile"><i class="fa fa-linkedin fa-lg fa-inverse"></i></a></li>
+      	</ul>
+	</div>
+	<div class = "copyright text-center">
+		<p>Copyright &copy; Xiaofan Ji. All rights reserved.</p>
+	</div>
+</footer>
+</body>
+</html>
