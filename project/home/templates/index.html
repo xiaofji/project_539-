@@ -15,5 +15,14 @@
   <strong>recipe:</strong> {{ user.recipes.recipename }} <br>
 <br>
 {% endfor %}
+<form class="form-addrecipe" role="form" method="post" action="">
+  {{ form.csrf_token }}
+  <p>
+    {{ form.recipename(placeholder="recipename") }}
+  </p>
+
+  <button class="btn btn-sm btn-success" type="submit">add recipe</button>
+</form>
+
 
 {% endblock %}
