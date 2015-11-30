@@ -9,9 +9,9 @@ def default():
 def index():
     return render_template("index.html", name = "index", title = "WELCOME")
 
-@app.route("/project")
-def project():
-    return render_template("project.html", name = "project", title = "PROJECT")
+@app.route("/yuecai")
+def yuecai():
+    return render_template("yuecai.html", name = "yuecai", title = "YUECAI")
 
 @app.route("/gallery")
 def gallery():

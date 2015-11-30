@@ -1,9 +1,7 @@
 {% extends "base.html"%}
 {% block content %}
 <div class = "content">
-	<div class = "welcome">
-		<div id = "viewer">
-		<img id = "displayimg" src="static/img/eightcai.jpg" alt="eightcu">
+		<img id = "displayimg" class = "img-rounded" src="static/img/eightcai.jpg" alt="eightcu">
     <ul id = "thum">
 			<li class = "dish" id = "eight" onmouseover="changeimage(this.id)" >Regional Cuisines of China </li>
 			<li class = "dish" id = "yue" onmouseover="changeimage(this.id)" >Sliced ​​cold chicken </li>
@@ -15,13 +13,10 @@
 			<li class = "dish" id = "hui" onmouseover="changeimage(this.id)" >Phoenix peony stew</li>
 			<li class = "dish" id = "lu" onmouseover="changeimage(this.id)" >Jellyfish with vinegar</li>
 		</ul>
-		<ul id = "choice">
-			<li  id = "learnmore"><a>Learn more about it</a> </li>
-			<li  id = "recipe" ><a> How to cook? </a></li>
-		</ul>
-
-		<h1 id = "cuisine"></h1>
-	</div>
-  </div>
+		<div id = "introduction">
+			<p id = "short">八大菜系---Eight best culinary traditions</p>
+			<p id = "long">Sichuan and Hunan cuisines: hot spice. Anhui and Fujian cuisines: inclusion of wild foods from their mountains. Guangdong (Cantonese), Fujian, Zhejiang, Jiangsu: great seafood, and generally sweet and light flavors. Shandong Cuisine: fresh and salty with a lot of seafood dishes.</p>
+			<p id = "loginplease"><a href = "">log in</a> to learn how to cook.</p>
+		</div>
 </div>
 {% endblock %}
