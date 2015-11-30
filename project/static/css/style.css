@@ -1,0 +1,109 @@
+body{
+  background-color:rgb(238, 229, 195);
+}
+#title{
+  font-family: "Arial Black", Gadget, sans-serif;
+  padding-top: 20px;
+  padding-left: 20px;
+
+}
+#subtitle{
+  font-family: "Arial Black", Gadget, sans-serif;
+  padding-left: 20px;
+
+}
+
+#displayimg, #cook{
+  width:100%;
+}
+#logsign{
+  float: right;
+  margin-top: 1%;
+}
+
+.content{
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 950px;
+  min-width: 750px;
+}
+
+
+#thum{
+  background:rgba(255,255,255,0.5);
+  position:absolute;
+  top:10px;
+  left:10px;
+  padding: 0;
+}
+#introduction{
+  padding: 10px;
+  position:absolute;
+  top: 10px;
+  right: 10px;
+  width: 400px;
+  background:rgba(255,255,255,0.5);
+}
+
+#short{
+  font-size: 15px;
+  font-weight: bold;
+  font-style: italic;
+}
+#long{
+  font-size: 15px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+#loginplease{
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+}
+#thum li{
+  list-style-type: none;
+  list-style-position: outside;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  color: black;
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+#eight{
+  background:rgba(36, 110, 166,0.5);
+}
+
+p.speech{
+  position: absolute;
+  top:20px;
+  left:300px;
+	width: 200px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	background-color: #fff;
+	border: 2px solid #666;
+	border-radius: 30px;
+	box-shadow: 2px 2px 4px #888;
+}
+p.speech:before{
+  position: absolute;
+	content: ' ';
+	width: 0;
+	height: 0;
+	left: 18px;
+	top: 98px;
+	border: 25px solid;
+	border-color: #666 transparent transparent #666;
+}
+#prestep{
+  position: absolute;
+  bottom:10px;
+  right: 10px;
+}
+#nextstep{
+  position: absolute;
+  bottom:10px;
+  left: 10px;
+}
