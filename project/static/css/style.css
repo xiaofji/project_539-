@@ -81,7 +81,7 @@ p.speech{
 	width: 200px;
 	height: 100px;
 	text-align: center;
-	line-height: 100px;
+  padding-top: 10px;
 	background-color: #fff;
 	border: 2px solid #666;
 	border-radius: 30px;
@@ -100,10 +100,34 @@ p.speech:before{
 #prestep{
   position: absolute;
   bottom:10px;
-  right: 10px;
+  left: 10px;
+}
+#repeat{
+  position: absolute;
+  bottom:10px;
+  left: 50%;
 }
 #nextstep{
   position: absolute;
   bottom:10px;
-  left: 10px;
+  right: 10px;
+}
+
+#material{
+  height:150px;
+  width:auto;
+  position: absolute;
+  top:20px;
+  right: 20px;
+}
+
+#dropbox{
+  padding: 40px;
+  position: absolute;
+  text-align: center;
+  left:26%;
+  bottom:0%;
+  font-family: "Arial Black", Gadget, sans-serif;
+  width: 15%;
+  height:25%;
 }
