@@ -52,9 +52,40 @@ def default():
 def index():
     return render_template("index.html", name = "index", title = "WELCOME")
 
-@home_blueprint.route("/yuecai")
+@home_blueprint.route("/yuecai", methods=['GET', 'POST'])
 def yuecai():
-    return render_template("yuecai.html", name = "yuecai", title = "YUECAI")
+    form = LoginForm(request.form)
+    formR = AddRecipeForm(request.form)
+    if request.method == 'POST':
+        if request.form['submit'] == 'login':
+            if form.validate_on_submit():
+                user = User.query.filter_by(username=request.form['username']).first()
+                print user
+                if user is not None and bcrypt.check_password_hash(
+                    user.password, request.form['password']
+                ):
+                    login_user(user)
+
+                else:
+                    error = 'Invalid username or password.'
+        elif request.form['submit'] == 'signup':
+            return redirect(url_for('users.register'))
+        elif request.form['submit'] == 'logout':
+            logout_user()
+            return render_template("index.html", name = "index", title = "WELCOME", form=form, user=current_user)
+        else:
+            user=User.query.filter_by(username=current_user.username).first()
+            recipe = Recipe.query.filter_by(recipename=request.form['submit']).first()
+            if recipe is not None:
+                recipes = Recipe.query.filter(Recipe.users.any(username=current_user.username)).all()
+
+                if recipe not in recipes:
+                    user.add_recipes([recipe])
+
+                    # commit the changes
+                    db.session.commit()
+
+    return render_template("yuecai.html", name = "yuecai", title = "YUECAI", form=form)
 # use decorators to link the function to a url
 @home_blueprint.route('/personalpage', methods=['GET', 'POST'])
 @login_required
