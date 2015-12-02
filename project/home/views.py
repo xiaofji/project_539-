@@ -54,6 +54,10 @@ def default():
 @home_blueprint.route("/yuecai/<LearningRecipeName>", methods=['GET', 'POST'])
 def yuecai(LearningRecipeName):
     error = None
+    print LearningRecipeName
+    ingres = Ingre.query.filter(Ingre.recipes.any(recipename=LearningRecipeName)).all()
+
+    ingresorder = Recipe.query.filter_by(recipename=LearningRecipeName).first().ingresorder
     form = LoginForm(request.form)
     formR = AddRecipeForm(request.form)
     if request.method == 'POST':
@@ -85,7 +89,7 @@ def yuecai(LearningRecipeName):
                     # commit the changes
                     db.session.commit()
 
-    return render_template("yuecai.html", name = "yuecai", title = "YUECAI", form=form, user=current_user, error=error, LearningRecipeName = LearningRecipeName)
+    return render_template("yuecai.html", name = "yuecai", title = "YUECAI", form=form, user=current_user, error=error, LearningRecipeName = LearningRecipeName, ingres=ingres, ingresorder=ingresorder)
 # use decorators to link the function to a url
 @home_blueprint.route('/personalpage', methods=['GET', 'POST'])
 @login_required

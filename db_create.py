@@ -20,9 +20,9 @@ ingre11 = Ingre(ingrename="thick bean sauce", url="static/img/ThickBeanSauce.jpg
 
 db.session.add_all([ingre1, ingre2, ingre3, ingre4, ingre5, ingre6, ingre7, ingre8, ingre9, ingre10, ingre11])
 
-recipe1 = Recipe(id=1,recipename="sliced cold chicken", ingresorder="2 5 6 7")
-recipe2 = Recipe(id=2,recipename="sichuan fish", ingresorder="11 10 1 5 4")
-recipe3 = Recipe(id=3,recipename="bitter shrimp ball", ingresorder="8 3 9 7")
+recipe1 = Recipe(id=1,recipename="sliced_cold_chicken", ingresorder="2 5 6 7")
+recipe2 = Recipe(id=2,recipename="sichuan_fish", ingresorder="11 10 1 5 4")
+recipe3 = Recipe(id=3,recipename="bitter_shrimp_ball", ingresorder="8 3 9 7")
 recipe1.add_ingres([ingre2, ingre5, ingre6, ingre7])
 recipe2.add_ingres([ingre4, ingre1, ingre5, ingre11, ingre10])
 recipe3.add_ingres([ingre8, ingre3, ingre9, ingre7])
