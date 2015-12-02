@@ -1,7 +1,7 @@
 {% extends "base.html"%}
 {% block content %}
 <div class = "content" id = "cookpage">
-    <img  id = "cook" class = "img-rounded" src="static/img/cookbackground.jpg" alt="kitchen">
+    <img  id = "cook" class = "img-rounded" src="../static/img/cookbackground.jpg" alt="kitchen">
     <p id="speech" class = "speech">Hello! Welcome to my kitchen.</p>
     <i  id = "nextstep" class="fa fa-forward fa-5x"></i>
     <i id = "repeat" class="fa fa-repeat fa-5x"></i>
@@ -11,6 +11,6 @@
 
 <form class="form-addrecipe" role="form" method="post" action="">
 
-  <button class="btn btn-sm btn-success" type="submit" name="submit" value="sichuan fish">add recipe</button>
+  <button class="btn btn-sm btn-success" type="submit" name="submit" value = {{ LearningRecipeName }}> {{ LearningRecipeName }} </button>
 </form>
 {% endblock %}
