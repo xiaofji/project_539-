@@ -9,7 +9,7 @@ from project import db
 from project.models import User, Recipe, Association, Ingre, Recipe_ingre, bcrypt
 from .forms import AddRecipeForm
 from project.users.forms import LoginForm
-
+import json
 ################
 #### config ####
 ################
@@ -54,6 +54,26 @@ def default():
 @home_blueprint.route("/yuecai/<LearningRecipeName>", methods=['GET', 'POST'])
 def yuecai(LearningRecipeName):
     error = None
+    # print LearningRecipeName
+    ingresobj = Ingre.query.filter(Ingre.recipes.any(recipename=LearningRecipeName)).all()
+    ingres = []
+    ingresurl = []
+    ingresorder = Recipe.query.filter_by(recipename=LearningRecipeName).first().ingresorder.split(" ")
+    instruction = Recipe.query.filter_by(recipename=LearningRecipeName).first().instruction.split("|")
+    print instruction
+
+    for i in ingresorder:
+        for obj in ingresobj:
+
+            if obj.id == int(i):
+                ingres.append(obj.ingrename)
+                ingresurl.append(obj.url)
+
+    # print ingres
+    # print ingresurl
+    # print json.dumps(ingres)
+
+    test = "wahaha"
     form = LoginForm(request.form)
     formR = AddRecipeForm(request.form)
     if request.method == 'POST':
@@ -85,7 +105,7 @@ def yuecai(LearningRecipeName):
                     # commit the changes
                     db.session.commit()
 
-    return render_template("yuecai.html", name = "yuecai", title = "YUECAI", form=form, user=current_user, error=error, LearningRecipeName = LearningRecipeName)
+    return render_template("yuecai.html", name = "yuecai", title = "YUECAI", form=form, instruction=instruction, user=current_user, error=error, test=test, LearningRecipeName = LearningRecipeName, ingres=ingres, ingresurl=ingresurl)
 # use decorators to link the function to a url
 @home_blueprint.route('/personalpage', methods=['GET', 'POST'])
 @login_required

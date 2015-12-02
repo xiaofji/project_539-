@@ -2,26 +2,27 @@ var lock = 0;
 var currentmaterial = -1;
 var currentstep = 0;
 var totalstep;
-var materials;
 var num_materials;
-var steps1 = ["Hello! Welcome to my kitchen.","Today I am going to teach you how to make the sliced cold chicken.",
-              "Cut a chicken to small pieces",
-              "add",
-              "add",
-              "Boil the chicken for 10 mins",
-              "Poul out all the water",
-              "add",
-              "Cut the greenonions",
-              "add",
-              "Congratuations! You have finished learning this dish!"];
+var ingres;
+// var steps1 = ["Hello! Welcome to my kitchen.","Today I am going to teach you how to make the sliced cold chicken.",
+//               "Cut a chicken to small pieces",
+//               "add",
+//               "add",
+//               "Boil the chicken for 10 mins",
+//               "Poul out all the water",
+//               "add",
+//               "Cut the greenonions",
+//               "add",
+//               "Congratuations! You have finished learning this dish!"];
 var foodstep;
 
-
 $(function(){
-  materials = ["Chicken", "Water", "SoySauce", "GreenOnions"];
+
+  console.log(materials[3]);
   num_material = materials.length;
   foodstep= steps1.slice(0);
   totalstep = foodstep.length;
+
   $("#repeat").click(function(){
     if(foodstep[currentstep]=="add")
     {
@@ -94,7 +95,9 @@ function addmaterial()
   $("#prestep").attr("class","nothing");
   $("#nextstep").attr("class","nothing");
   $("#speech").text("Add the" +materials[currentmaterial]+" in to the pot. Please drag drop it on the right place");
-  $("#material").attr("src","../static/img/"+materials[currentmaterial]+".jpg");
+  // $("#material").attr("src","../static/img/"+materials[currentmaterial]+".jpg");
+  $("#material").attr("src",materialsurl[currentmaterial]);
+
   drag();
 };
 
