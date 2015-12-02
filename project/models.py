@@ -65,13 +65,15 @@ class Recipe(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     recipename = db.Column(db.String, nullable=False)
     ingresorder = db.Column(db.String, nullable=False)
+    instruction = db.Column(db.String, nullable=False)
     users = db.relationship("User", secondary="association", viewonly=True)
 
 
-    def __init__(self, id, recipename, ingresorder):
+    def __init__(self, id, recipename, ingresorder, instruction):
         self.id = id
         self.recipename = recipename
         self.ingresorder = ingresorder
+        self.instruction = instruction
 
     def __repr__(self):
         return '<recipename> {}'.format(self.recipename)
