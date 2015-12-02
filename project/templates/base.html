@@ -10,7 +10,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="../static/css/style.css">
 	<script>
 	var lock = 0;
 	var currentmaterial = -1;
@@ -18,7 +18,7 @@
 	var totalstep;
 	var materials;
 	var num_materials;
-	var steps1 = ["Hello! Welcome to my kitchen.","Today I am going to teach you how to make the sliced cold chicken.","add","add", "add","Congratuations! You have finish learing this dish!"];
+	var steps1 = ["Hello! Welcome to my kitchen.","Today I am going to teach you how to make the sliced cold chicken.","add","add", "add","Congratuations! You have finish learning this dish!"];
 	var foodstep;
 
 
@@ -99,7 +99,7 @@
 		$("#prestep").attr("class","nothing");
 		$("#nextstep").attr("class","nothing");
 		$("#speech").text("Please drop the "+materials[currentmaterial]+" in to the pot");
-		$("#material").attr("src","static/img/"+materials[currentmaterial]+".jpg");
+		$("#material").attr("src","../static/img/"+materials[currentmaterial]+".jpg");
 		drag();
 	};
 
@@ -179,6 +179,7 @@
 
 			<button class="btn btn-sm btn-success" type="submit" name="submit" value="logout">logout</button>
 			</form>
+			<a href="/personalpage">My home page</a>
 		</p>
 
 			{% else %}
