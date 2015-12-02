@@ -72,7 +72,7 @@ def yuecai(LearningRecipeName):
             return redirect(url_for('users.register'))
         elif request.form['submit'] == 'logout':
             logout_user()
-            return render_template("index.html", name = "index", title = "WELCOME", form=form, user=current_user)
+            return redirect(url_for("home.default", name = "index", title = "WELCOME", form=form, user=current_user))
         else:
             user=User.query.filter_by(username=current_user.username).first()
             recipe = Recipe.query.filter_by(recipename=request.form['submit']).first()
@@ -116,9 +116,6 @@ def personalpage():
     recipesNotLearnt = Recipe.query.filter(~Recipe.users.any(username=current_user.username)).all()
     # recipes = db.session.query(Recipe).all()
     return render_template('personalpage.html', recipes=recipes, recipesNotLearnt = recipesNotLearnt, form=form, user=current_user)  # render a template
-
-    # posts = db.session.query(BlogPost).all()
-    # return render_template('index.html', posts=posts)  # render a template
 
 
 @home_blueprint.route('/welcome')
