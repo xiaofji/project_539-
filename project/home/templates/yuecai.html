@@ -1,6 +1,15 @@
 {% extends "base.html"%}
 {% block content %}
-<div class = "content" id = "cookpage">
+
+<script>
+
+var materials =  {{ ingres|tojson }};
+var materialsurl = {{ ingresurl|tojson }};
+var steps1 = {{ instruction|tojson }};
+
+</script>
+
+<div class = "content" id = "cookpage" >
     <img  id = "cook" class = "img-rounded" src="../static/img/cookbackground.jpg" alt="kitchen">
     <p id="speech" class = "speech">Hello! Welcome to my kitchen.</p>
     <i  id = "nextstep" class="fa fa-forward fa-5x"></i>
