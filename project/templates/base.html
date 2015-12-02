@@ -3,18 +3,125 @@
 <head>
 	<meta charset="UTF-8">
 	<title> Xiaofan's {{title}}</title>
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="../static/css/style.css">
 	<script>
-	var currentfood;
+	var lock = 0;
+	var currentmaterial = -1;
 	var currentstep = 0;
 	var totalstep;
+	var materials;
+	var num_materials;
+	var steps1 = ["Hello! Welcome to my kitchen.","Today I am going to teach you how to make the sliced cold chicken.","add","add", "add","Congratuations! You have finish learning this dish!"];
+	var foodstep;
+
+
+	$(function(){
+		materials = ["Chicken", "Water", "SoySauce"];
+		num_material = materials.length;
+		foodstep= steps1.slice(0);
+		totalstep = foodstep.length;
+		$("#repeat").click(function(){
+			if(foodstep[currentstep]=="add")
+			{
+				lock = 1;
+				$("#drop"+currentmaterial).attr("id","material");
+				$("#material").css({height:"150px",position: "absolute",top:"20px",bottom:"auto",right: "20px",left:"auto"});
+				addmaterial();
+			}
+		});
+		$("#prestep").click(function(){
+			currentstep--;
+			if(foodstep[currentstep+1]=="add")
+			{
+				$("#drop"+currentmaterial).remove();
+				currentmaterial--;
+			}
+			if(foodstep[currentstep]=="add")
+			{
+				lock = 1;
+				$("#drop"+currentmaterial).remove();
+				$("#cookpage").append('<img id = "material"  alt="material">');
+				$("#material").css({height:"150px",position: "absolute",top:"20px",bottom:"auto",right: "20px",left:"auto"});
+				addmaterial();
+			}
+			else {
+				lock = 0;
+				$("#speech").text(foodstep[currentstep]);
+			}
+			icon();
+		});
+
+		$("#nextstep").click(function(){
+			currentstep++;
+			if(foodstep[currentstep]=="add")
+			{
+				currentmaterial++;
+				lock = 1;
+				$("#cookpage").append('<img id = "material"  alt="material">');
+				$("#material").css({height:"150px",position: "absolute",top:"20px",bottom:"auto",right: "20px",left:"auto"});
+				addmaterial();
+			}
+			else {
+				lock = 0;
+				$("#speech").text(foodstep[currentstep]);
+			}
+			icon();
+		});
+	});
+
+
+	function drag() {
+		var $material = $( "#material" ),$dropbox = $( "#dropbox" );
+    $material.draggable({cancel: "a.ui-icon", revert: "invalid", cursor: "move"});
+    $dropbox.droppable({accept: "#material",
+      drop: function( event, ui ) {
+				$("#speech").text("You did it! Let's move to the next step");
+				$("#prestep").attr('class', 'fa fa-backward fa-5x');
+				$("#nextstep").attr('class', 'fa fa-forward fa-5x');
+				$("#material").attr("id","drop"+currentmaterial);
+				$("#dropbox").text("");
+				$("#drop"+currentmaterial).css({position:"absolute",height: "70px", width:"auto", bottom:"10px",top:"auto"});
+				lock = 0;
+      }
+    });
+	};
+
+	function addmaterial()
+	{
+		$("#dropbox").text("Drop here!");
+		$("#prestep").attr("class","nothing");
+		$("#nextstep").attr("class","nothing");
+		$("#speech").text("Please drop the "+materials[currentmaterial]+" in to the pot");
+		$("#material").attr("src","../static/img/"+materials[currentmaterial]+".jpg");
+		drag();
+	};
+
+	function icon()
+	{
+		if(currentstep==0)
+		{
+			$("#prestep").attr("class","nothing");
+		}
+		else if(currentstep == totalstep-1)
+		{
+			$("#nextstep").attr("class","nothing");
+		}
+		else if(lock==0){
+			$("#prestep").attr("class","fa fa-backward fa-5x");
+			$("#nextstep").attr("class","fa fa-forward fa-5x");
+		}
+	};
+
 	function changeimage(id)
 	{
-		currentfood = id;
+		currentmaterial = id;
 		document.getElementById("displayimg").src = "static/img/"+id+"cai.jpg";
 		var elems = document.getElementsByClassName("dish");
 		for(var i = 0; i < elems.length; i++) {
@@ -72,6 +179,7 @@
 
 			<button class="btn btn-sm btn-success" type="submit" name="submit" value="logout">logout</button>
 			</form>
+			<a href="/personalpage">My home page</a>
 		</p>
 
 			{% else %}

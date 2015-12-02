@@ -18,7 +18,14 @@
 	var totalstep;
 	var materials;
 	var num_materials;
-	var steps1 = ["Hello! Welcome to my kitchen.","Today I am going to teach you how to make the sliced cold chicken.","add","add", "add","Congratuations! You have finished learning this dish!"];
+	var steps1 = ["Hello! Welcome to my kitchen.","Today I am going to teach you how to make the sliced cold chicken.",
+								"add",
+								"Cut the chicken to small pieces",
+								"add",
+								"Boil the chicken for 10 mins",
+								"Poul out all the water"
+								"add",
+								"Congratuations! You have finished learning this dish!"];
 	var foodstep;
 
 
@@ -98,7 +105,7 @@
 		$("#dropbox").text("Drop here!");
 		$("#prestep").attr("class","nothing");
 		$("#nextstep").attr("class","nothing");
-		$("#speech").text("Please drop the "+materials[currentmaterial]+" in to the pot");
+		$("#speech").text("Add the" +materials[currentmaterial]+" in to the pot, Please drag drop it on the right place");
 		$("#material").attr("src","static/img/"+materials[currentmaterial]+".jpg");
 		drag();
 	};
