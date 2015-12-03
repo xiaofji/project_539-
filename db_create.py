@@ -20,9 +20,9 @@ ingre11 = Ingre(ingrename="thick bean sauce", url="../static/img/ThickBeanSauce.
 
 db.session.add_all([ingre1, ingre2, ingre3, ingre4, ingre5, ingre6, ingre7, ingre8, ingre9, ingre10, ingre11])
 
-instruct1 = "Hello! Welcome to my kitchen.|Today I am going to teach you how to make the sliced cold chicken.|Cut a chicken to small pieces|add|add|Boil the chicken for 10 mins|Poul out all the water|add|Cut the greenonions|add|Congratuations! You have finished learning this dish!"
-instruct2 = ""
-instruct3 = ""
+instruct1 = "Hello! Welcome to my kitchen.|Today I am going to teach you how to cook the sliced cold chicken.|Cut a chicken to small pieces|add|add|Boil the chicken for 10 mins|Poul out all the water|add|Cut the greenonions|add|Congratuations! You have finished learning this dish!"
+instruct2 = "Hello! Welcome to my kitchen.|Today I am going to teach you how to cook the Sichuan fish.|add|add|add|Fry 5min|add|Boil for 10mins.|add|Boil for 6mins|Congratuations! You have finished learning this dish!"
+instruct3 = "Hello! Welcome to my kitchen.|Today I am going to teach you how to cook the bitter shrimp ball.|Slice the bitter melon and put it at the bottom.|add|add|add|Steam for 20mins|add|Congratuations! You have finished learning this dish!"
 
 recipe1 = Recipe(id=1,recipename="sliced_cold_chicken", ingresorder="2 5 6 7", instruction = instruct1)
 recipe2 = Recipe(id=2,recipename="sichuan_fish", ingresorder="11 10 1 5 4", instruction = instruct2)

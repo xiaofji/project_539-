@@ -131,3 +131,9 @@ p.speech:before{
   width: 15%;
   height:25%;
 }
+
+#addbutton{
+  position: absolute;
+  top:75px;
+  left:330px;
+}

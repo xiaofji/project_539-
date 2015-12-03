@@ -18,7 +18,7 @@ var foodstep;
 
 $(function(){
 
-  console.log(materials[3]);
+
   num_material = materials.length;
   foodstep= steps1.slice(0);
   totalstep = foodstep.length;
@@ -34,6 +34,7 @@ $(function(){
   });
   $("#prestep").click(function(){
     currentstep--;
+    $("#addbutton").attr("class","hidden form-addrecipe");
     if(foodstep[currentstep+1]=="add")
     {
       $("#drop"+currentmaterial).remove();
@@ -55,7 +56,14 @@ $(function(){
   });
 
   $("#nextstep").click(function(){
+
     currentstep++;
+    if(currentstep==totalstep-1){
+      $("#addbutton").attr("class","form-addrecipe");
+    }
+    else{
+      $("#addbutton").attr("class","hidden form-addrecipe");
+    }
     if(foodstep[currentstep]=="add")
     {
       currentmaterial++;
@@ -94,7 +102,7 @@ function addmaterial()
   $("#dropbox").text("Drop here!");
   $("#prestep").attr("class","nothing");
   $("#nextstep").attr("class","nothing");
-  $("#speech").text("Add the" +materials[currentmaterial]+" in to the pot. Please drag drop it on the right place");
+  $("#speech").text("Add the " +materials[currentmaterial]+" in to the pot. Please drag drop it on the right place");
   // $("#material").attr("src","../static/img/"+materials[currentmaterial]+".jpg");
   $("#material").attr("src",materialsurl[currentmaterial]);
 

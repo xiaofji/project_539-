@@ -16,10 +16,10 @@ var steps1 = {{ instruction|tojson }};
     <i id = "repeat" class="fa fa-repeat fa-5x"></i>
     <i  id = "prestep" class="nothing"></i>
     <p id="dropbox"></p>
+    <form id = "addbutton" class="hidden form-addrecipe" role="form" method="post" action="">
+      <button class="btn btn-sm btn-success" type="submit" name="submit" value = {{ LearningRecipeName }}> Add to my recipe </button>
+    </form>
 </div>
 
-<form class="form-addrecipe" role="form" method="post" action="">
 
-  <button class="btn btn-sm btn-success" type="submit" name="submit" value = {{ LearningRecipeName }}> {{ LearningRecipeName }} </button>
-</form>
 {% endblock %}
