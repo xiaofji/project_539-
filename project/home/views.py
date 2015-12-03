@@ -73,7 +73,6 @@ def yuecai(LearningRecipeName):
     # print ingresurl
     # print json.dumps(ingres)
 
-    test = "wahaha"
     form = LoginForm(request.form)
     formR = AddRecipeForm(request.form)
     if request.method == 'POST':
@@ -104,8 +103,12 @@ def yuecai(LearningRecipeName):
 
                     # commit the changes
                     db.session.commit()
+    if LearningRecipeName == "sliced_cold_chicken" or LearningRecipeName == "bitter_shrimp_ball" or LearningRecipeName == "sichuan_fish":
+        return render_template("yuecai.html", name = "yuecai", title = "YUECAI", form=form, instruction=instruction, user=current_user, error=error, LearningRecipeName = LearningRecipeName, ingres=ingres, ingresurl=ingresurl)
+    else:
+        return render_template("coming.html", name = "yuecai", title = "YUECAI", form=form, user=current_user, error=error, LearningRecipeName = LearningRecipeName)
 
-    return render_template("yuecai.html", name = "yuecai", title = "YUECAI", form=form, instruction=instruction, user=current_user, error=error, test=test, LearningRecipeName = LearningRecipeName, ingres=ingres, ingresurl=ingresurl)
+
 # use decorators to link the function to a url
 @home_blueprint.route('/personalpage', methods=['GET', 'POST'])
 @login_required
@@ -134,10 +137,12 @@ def personalpage():
 
     recipes = Recipe.query.filter(Recipe.users.any(username=current_user.username)).all()
     recipesNotLearnt = Recipe.query.filter(~Recipe.users.any(username=current_user.username)).all()
+    recipesname = []
+    recipesNotLearntname = []
+    for recipe in recipes:
+        recipesname.append(recipe.recipename)
+    for recipe in recipesNotLearnt:
+        recipesNotLearntname.append(recipe.recipename)
     # recipes = db.session.query(Recipe).all()
-    return render_template('personalpage.html', recipes=recipes, recipesNotLearnt = recipesNotLearnt, form=form, user=current_user)  # render a template
-
-
-@home_blueprint.route('/welcome')
-def welcome():
-    return render_template('welcome.html', user=current_user)  # render a template
+    # return render_template('personalpage.html', recipes=recipes, recipesNotLearnt = recipesNotLearnt, form=form, user=current_user)  # render a template
+    return render_template('personalpage.html', recipes=recipesname, recipesNotLearnt = recipesNotLearntname, form=form, user=current_user)  # render a template

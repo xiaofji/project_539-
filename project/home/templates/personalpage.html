@@ -1,7 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
+<script>
+var recipes = {{ recipes|tojson }};
+var recipesNotLearnt = {{ recipesNotLearnt|tojson }};
 
+</script>
+<div id="recipesLearnt">
+  <h3>Recipes Learnt:</h3>
 
+</div>
+
+<div id="recipesNotLearnt">
+  <h3>Recipes Not Learnt:</h3>
+</div>
+<script src = "../static/js/personalpage.js"></script>
+
+<!--
 <h3>Recipes Learnt:</h3>
 {% for recipe in recipes %}
   <strong>recipe:</strong> {{ recipe.recipename }} <br>
@@ -12,12 +26,12 @@
 {% for recipe in recipesNotLearnt %}
   <strong>recipe:</strong> {{ recipe.recipename }} <br>
 <br>
-{% endfor %}
+{% endfor %} -->
 
-{% for user in users %}
+<!-- {% for user in users %}
   <strong>recipe:</strong> {{ user.recipes.recipename }} <br>
 <br>
-{% endfor %}
+{% endfor %} -->
 
 
 <a href="/"> Go back to home page</a>
