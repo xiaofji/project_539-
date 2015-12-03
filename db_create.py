@@ -44,7 +44,7 @@ user1 = User( username = "admin", password = "admin")
 user2 = User( username = "siyu", password = "siyu")
 
 
-user1.add_recipes([ recipe1 , recipe3 ])
+user1.add_recipes([ recipe1 , recipe3, recipe2, recipe4, recipe5, recipe6, recipe7, recipe8 ])
 user2.add_recipes([ recipe2 , recipe1 ])
 
 # commit the changes
