@@ -134,8 +134,15 @@ def personalpage():
 
     recipes = Recipe.query.filter(Recipe.users.any(username=current_user.username)).all()
     recipesNotLearnt = Recipe.query.filter(~Recipe.users.any(username=current_user.username)).all()
+    recipesname = []
+    recipesNotLearntname = []
+    for recipe in recipes:
+        recipesname.append(recipe.recipename)
+    for recipe in recipesNotLearnt:
+        recipesNotLearntname.append(recipe.recipename)
     # recipes = db.session.query(Recipe).all()
-    return render_template('personalpage.html', recipes=recipes, recipesNotLearnt = recipesNotLearnt, form=form, user=current_user)  # render a template
+    # return render_template('personalpage.html', recipes=recipes, recipesNotLearnt = recipesNotLearnt, form=form, user=current_user)  # render a template
+    return render_template('personalpage.html', recipes=recipesname, recipesNotLearnt = recipesNotLearntname, form=form, user=current_user)  # render a template
 
 
 @home_blueprint.route('/welcome')
