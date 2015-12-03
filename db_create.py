@@ -27,6 +27,14 @@ instruct3 = ""
 recipe1 = Recipe(id=1,recipename="sliced_cold_chicken", ingresorder="2 5 6 7", instruction = instruct1)
 recipe2 = Recipe(id=2,recipename="sichuan_fish", ingresorder="11 10 1 5 4", instruction = instruct2)
 recipe3 = Recipe(id=3,recipename="bitter_shrimp_ball", ingresorder="8 3 9 7", instruction = instruct3)
+recipe4 = Recipe(id=4,recipename="crystal_shrimp", ingresorder="1", instruction = " ")
+recipe5 = Recipe(id=5,recipename="buddha_Jumps_over_the_wall", ingresorder="1", instruction = " ")
+recipe6 = Recipe(id=6,recipename="steamed_preserved_hams", ingresorder="1", instruction = " ")
+recipe7 = Recipe(id=7,recipename="phoenix_peony_stew", ingresorder="1", instruction = " ")
+recipe8 = Recipe(id=8,recipename="jellyfish_with_vinegar", ingresorder="1", instruction = " ")
+
+
+
 recipe1.add_ingres([ingre2, ingre5, ingre6, ingre7])
 recipe2.add_ingres([ingre4, ingre1, ingre5, ingre11, ingre10])
 recipe3.add_ingres([ingre8, ingre3, ingre9, ingre7])
