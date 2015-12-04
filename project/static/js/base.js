@@ -163,22 +163,27 @@ function changeimage(id)
     else if(id == "zhe"){
       document.getElementById("short").innerHTML = "浙菜 Zhècài---Mellow, using fresh seafood, freshwater fish, and bamboo shoots, and a wide variety of cooking methods.";
       document.getElementById("long").innerHTML = "Zhejiang Province is the province south of Jiangsu, and it borders on Shanghai too, so their style is similar to theirs, but it is less elaborately prepared. They focus more on serving fresh food. The food is often served raw or almost raw and is fresh and crispy and seasonal. It is more like Japanese food. Ningbo cuisine is very salty.";
+      document.getElementById("learnlink").href = "/yuecai/crystal_shrimp";
     }
     else if(id == "min"){
       document.getElementById("short").innerHTML = "闽菜 Mǐncài---Lighter, with a mild sweet and sour taste, using ingredients from the sea and the mountains.";
       document.getElementById("long").innerHTML = "Fujian Province is known for great seafood and soups and the precise use of scintillating but not tongue numbing spices. Adding much wild exotic delicacies from the sea and mountains makes their dishes have unusual flavors. It is like a culinary wild adventure.";
+      document.getElementById("learnlink").href = "/yuecai/buddha_Jumps_over_the_wall";
     }
     else if(id == "xiang"){
       document.getElementById("short").innerHTML = "湘菜 Xiāngcài---Quite spicy, with a hot and sour taste, favoring sautéing, stir-frying, steaming and smoking";
       document.getElementById("long").innerHTML = "If you like Sichuan food, you'll probably like Hunan food too since it is even hotter. It is tastier and more delicious because they don't use peppercorn that numbs the mouth. It is a rich agricultural area that produces a broad range of vegetables and herbs, and these are served up.";
+      document.getElementById("learnlink").href = "/yuecai/steamed_preserved_hams";
     }
     else if(id == "hui"){
       document.getElementById("short").innerHTML = "徽菜 Huīcài---Uses many wild plants and animals as ingredients, favoring stewing and more oil";
       document.getElementById("long").innerHTML = "Anhui cuisine is even wilder than Fujian cuisine. It is inland, and big mountains such as the Yellow Mountains are the source of lots of different wild foods and herbs. It is basically a hearty mountain peasant food. Some of the best dishes incorporate wild food for an unusual taste. Some dishes are sweet from added sugar.";
+      document.getElementById("learnlink").href = "/yuecai/phoenix_peony_stew";
     }
     else if(id == "lu"){
       document.getElementById("short").innerHTML = "鲁菜 Lǔcài---Salty and crispy, favoring braising and seafood";
       document.getElementById("long").innerHTML = "Shandong was one of the first civilized areas, and it set the pattern for northern styles of cooking. With a long coast, seafood is its forte. They preserve the original taste of the seafood by using simple ingredients and braising, and they like vinegar and salt. Unlike southern cuisines, they serve much more wheat food, including their noodles.";
+      document.getElementById("learnlink").href = "/yuecai/jellyfish_with_vinegar";
     }
   }
 
