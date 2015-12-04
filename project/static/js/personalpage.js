@@ -1,13 +1,13 @@
 
 for (i = 0; i < recipes.length; i++) {
   console.log('<a href="/yuecai/'+recipes[i]+'"><img '+'src="../static/img/'+recipes[i]+'.jpg" class="img-circle"> </a>');
-  $("#recipesLearnt ul").append('<li><a href="/yuecai/ class="trigger"'+recipes[i]+'"><img '+'src="../static/img/'+recipes[i]+'.jpg" class="img-circle"> <span class="text-content"><span>'+recipes[i].replace(/_/g," ")+'</span></span></a></li>');
+  $("#recipesLearnt ul").append('<li><a href="/yuecai/'+recipes[i]+'" class="trigger"><img '+'src="../static/img/'+recipes[i]+'.jpg" class="img-circle" alt = "'+recipes[i]+'"> <span class="text-content"><span><p>'+recipes[i].replace(/_/g," ")+'</p><p class="clickToLearn">click to review!</p></span></span></a></li>');
 
 }
 
 for (i = 0; i < recipesNotLearnt.length; i++) {
   console.log('<a href="/yuecai/'+recipesNotLearnt[i]+'"><img '+'src="../static/img/'+recipesNotLearnt[i]+'.jpg" class="img-circle"> <span class="img-text"><span>'+recipesNotLearnt[i]+'</span></span></a>');
-  $("#recipesNotLearnt ul").append('<li><a href="/yuecai/ class="trigger"'+recipesNotLearnt[i]+'"><img '+'src="../static/img/'+recipesNotLearnt[i]+'.jpg" class="img-circle"><span class="text-content"><span>'+recipesNotLearnt[i].replace(/_/g," ")+'</span></span> </a></li>');
+  $("#recipesNotLearnt ul").append('<li><a href="/yuecai/'+recipesNotLearnt[i]+'"  class="trigger"><img '+'src="../static/img/'+recipesNotLearnt[i]+'.jpg" class="img-circle" alt = "'+recipes[i]+'"><span class="text-content"><span><p>'+recipesNotLearnt[i].replace(/_/g," ")+'</p><p class="clickToLearn">click to learn!</p></span></span> </a></li>');
 
 }
 
@@ -16,7 +16,6 @@ $(document).ready(function(){
 
 
     $(".gallery_small").click(function(){
-        // console.log(Number($(this).attr("id")));
         current = Number($(this).attr("id"));
 
         $(".slider .slides").animate({

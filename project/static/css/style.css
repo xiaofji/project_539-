@@ -182,4 +182,17 @@ span.text-content {
   -o-transition: opacity 500ms;
   transition: opacity 500ms;
   border-radius: 50%;
+  text-transform: capitalize;
+}
+
+span.text-content p {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+span.text-content p.clickToLearn {
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+
 }

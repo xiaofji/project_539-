@@ -44,17 +44,16 @@ def default():
             return redirect(url_for('users.register'))
         elif request.form['submit'] == 'logout':
             logout_user()
-            return render_template("index.html", name = "index", title = "WELCOME", form=form, user=current_user)
+            return render_template("index.html", name = "index", title = "Chinese Cooking", form=form, user=current_user)
 
 
-    return render_template("index.html", name = "index", title = "WELCOME", error = error, form=form, user=current_user)
+    return render_template("index.html", name = "index", title = "Chinese Cooking", error = error, form=form, user=current_user)
 
 
 
 @home_blueprint.route("/yuecai/<LearningRecipeName>", methods=['GET', 'POST'])
 def yuecai(LearningRecipeName):
     error = None
-    # print LearningRecipeName
     ingresobj = Ingre.query.filter(Ingre.recipes.any(recipename=LearningRecipeName)).all()
     ingres = []
     ingresurl = []
@@ -69,9 +68,6 @@ def yuecai(LearningRecipeName):
                 ingres.append(obj.ingrename)
                 ingresurl.append(obj.url)
 
-    # print ingres
-    # print ingresurl
-    # print json.dumps(ingres)
 
     form = LoginForm(request.form)
     formR = AddRecipeForm(request.form)
@@ -91,7 +87,7 @@ def yuecai(LearningRecipeName):
             return redirect(url_for('users.register'))
         elif request.form['submit'] == 'logout':
             logout_user()
-            return redirect(url_for("home.default", name = "index", title = "WELCOME", form=form, user=current_user))
+            return redirect(url_for("home.default"))
         else:
             user=User.query.filter_by(username=current_user.username).first()
             recipe = Recipe.query.filter_by(recipename=request.form['submit']).first()
@@ -104,9 +100,9 @@ def yuecai(LearningRecipeName):
                     # commit the changes
                     db.session.commit()
     if LearningRecipeName == "sliced_cold_chicken" or LearningRecipeName == "bitter_shrimp_ball" or LearningRecipeName == "sichuan_fish":
-        return render_template("yuecai.html", name = "yuecai", title = "YUECAI", form=form, instruction=instruction, user=current_user, error=error, LearningRecipeName = LearningRecipeName, ingres=ingres, ingresurl=ingresurl)
+        return render_template("yuecai.html", title = "Cooking", form=form, instruction=instruction, user=current_user, error=error, LearningRecipeName = LearningRecipeName, ingres=ingres, ingresurl=ingresurl)
     else:
-        return render_template("coming.html", name = "yuecai", title = "YUECAI", form=form, user=current_user, error=error, LearningRecipeName = LearningRecipeName)
+        return render_template("coming.html", title = "Cooking", form=form, user=current_user, error=error, LearningRecipeName = LearningRecipeName)
 
 
 # use decorators to link the function to a url
@@ -117,6 +113,10 @@ def personalpage():
     error = None
     recipes = None
     form = LoginForm(request.form)
+    if current_user is None:
+        title = 'personalpage'
+    else:
+        title = current_user.username
     if request.method == 'POST':
         if request.form['submit'] == 'login':
             if form.validate_on_submit():
@@ -126,6 +126,7 @@ def personalpage():
                     user.password, request.form['password']
                 ):
                     login_user(user)
+                    title = user
 
                 else:
                     error = 'Invalid username or password.'
@@ -133,7 +134,7 @@ def personalpage():
             return redirect(url_for('users.register'))
         elif request.form['submit'] == 'logout':
             logout_user()
-            return redirect(url_for('home.personalpage', recipes=recipes, form=form, user=current_user))  # render a template
+            return redirect(url_for('home.default'))
 
     recipes = Recipe.query.filter(Recipe.users.any(username=current_user.username)).all()
     recipesNotLearnt = Recipe.query.filter(~Recipe.users.any(username=current_user.username)).all()
@@ -145,4 +146,5 @@ def personalpage():
         recipesNotLearntname.append(recipe.recipename)
     # recipes = db.session.query(Recipe).all()
     # return render_template('personalpage.html', recipes=recipes, recipesNotLearnt = recipesNotLearnt, form=form, user=current_user)  # render a template
-    return render_template('personalpage.html', recipes=recipesname, recipesNotLearnt = recipesNotLearntname, form=form, user=current_user)  # render a template
+
+    return render_template('personalpage.html', title=title, recipes=recipesname, recipesNotLearnt = recipesNotLearntname, form=form, user=current_user)  # render a template
