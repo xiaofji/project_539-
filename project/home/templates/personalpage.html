@@ -5,6 +5,7 @@ var recipes = {{ recipes|tojson }};
 var recipesNotLearnt = {{ recipesNotLearnt|tojson }};
 
 </script>
+<div class = "content">
 <div id="recipesLearnt">
   <h3>Recipes Learnt:</h3>
   <ul class="img-list">
@@ -22,5 +23,5 @@ var recipesNotLearnt = {{ recipesNotLearnt|tojson }};
 
 
 <a href="/"> Go back to home page</a>
-
+</div>
 {% endblock %}
