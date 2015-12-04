@@ -1,13 +1,13 @@
 
 for (i = 0; i < recipes.length; i++) {
   console.log('<a href="/yuecai/'+recipes[i]+'"><img '+'src="../static/img/'+recipes[i]+'.jpg" class="img-circle"> </a>');
-  $("#recipesLearnt").append('<a href="/yuecai/'+recipes[i]+'"><img '+'src="../static/img/'+recipes[i]+'.jpg" class="img-circle"> </a>');
+  $("#recipesLearnt ul").append('<li><a href="/yuecai/ class="trigger"'+recipes[i]+'"><img '+'src="../static/img/'+recipes[i]+'.jpg" class="img-circle"> <span class="text-content"><span>'+recipes[i].replace(/_/g," ")+'</span></span></a></li>');
 
 }
 
 for (i = 0; i < recipesNotLearnt.length; i++) {
-  console.log('<a href="/yuecai/'+recipesNotLearnt[i]+'"><img '+'src="../static/img/'+recipesNotLearnt[i]+'.jpg" class="img-circle"> </a>');
-  $("#recipesNotLearnt").append('<a href="/yuecai/'+recipesNotLearnt[i]+'"><img '+'src="../static/img/'+recipesNotLearnt[i]+'.jpg" class="img-circle"> </a>');
+  console.log('<a href="/yuecai/'+recipesNotLearnt[i]+'"><img '+'src="../static/img/'+recipesNotLearnt[i]+'.jpg" class="img-circle"> <span class="img-text"><span>'+recipesNotLearnt[i]+'</span></span></a>');
+  $("#recipesNotLearnt ul").append('<li><a href="/yuecai/ class="trigger"'+recipesNotLearnt[i]+'"><img '+'src="../static/img/'+recipesNotLearnt[i]+'.jpg" class="img-circle"><span class="text-content"><span>'+recipesNotLearnt[i].replace(/_/g," ")+'</span></span> </a></li>');
 
 }
 
