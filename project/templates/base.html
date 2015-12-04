@@ -41,14 +41,16 @@
 	    <a class="navbar-brand" href="./index.html"></a>
 	  </div>
 			<div id = "logsign">
+				<h4 class = "welcome">
 				{% if current_user.is_authenticated %}
-					Hi
+					Hi,
 					{{current_user.username}}
 					welcome back!
-					<a href="/personalpage">My home page</a>
+				</h3 >
+					<a href="/personalpage"> <h4 class = "welcome">My home page </h4></a>
 					<form class="form-logout" role="form" method="post" action="" id = "logout">
 
-					<button class="btn btn-sm btn-success" type="submit" name="submit" value="logout"><i class="fa fa-sign-out"></i> logout</button>
+					<button class="btn btn-sm btn-success" type="submit" name="submit" value="logout"><i class="fa fa-sign-out"></i> <h5 class = "welcome">logout</h5></button>
 					</form>
 					{% else %}
 					<form class="form-signin" role="form" method="post" action="" id = "login">
@@ -73,8 +75,8 @@
 								{% endif %}
 							</span>
 
-						<button class="btn btn-sm btn-success" type="submit" name="submit" value="login"><i class="fa fa-sign-in"></i> Sign in</button>
-						<button class="btn btn-sm btn-success" type="submit" name="submit" value="signup"><i class="fa fa-user-plus"></i> Sign up</button>
+						<button class="btn btn-sm btn-success" type="submit" name="submit" value="login"><i class="fa fa-sign-in"></i><h5 class = "welcome"> Sign in</h5></button>
+						<button class="btn btn-sm btn-success" type="submit" name="submit" value="signup"><i class="fa fa-user-plus"></i><h5 class = "welcome"> Sign up</h5></button>
 
 
 					</form>
@@ -103,6 +105,7 @@
 	{%endblock%}
 
 <footer>
+	<p class = "hidden-lg text-center">Copyright &copy; Xiaofan Ji and Siyu Chen. All rights reserved.</p>
 </footer>
 </body>
 </html>

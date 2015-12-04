@@ -13,12 +13,14 @@ body{
 
 }
 
-#displayimg, #cook{
+#displayimg, #cook, #commingsoon{
   width:100%;
 }
 #logsign{
   float: right;
-  margin-top: 1%;
+  margin-top: 24px;
+  margin-right: 10px;
+  margin-bottom: 24px;
 }
 
 .content{
@@ -188,4 +190,12 @@ z-index: -1;
   margin-top: 10px;
   font-size: 12px;
   text-align: center;
+}
+
+.welcome{
+  display: inline;
+}
+
+footer{
+  margin-left: 200px;
 }
