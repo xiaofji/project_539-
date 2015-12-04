@@ -16,54 +16,71 @@
 <body>
 
 <header>
-	<div id = "logsign">
-		{% if current_user.is_authenticated %}
-		<p>
-			welcome
-			{{current_user.username}}
-			<form class="form-logout" role="form" method="post" action="" id = "logout">
+<div id="sidebar" role="navigation">
+	<img id = "logo" src = "../static/img/logo.jpg">
+    <div id="sidebar-nav">
+            <ul class="nav nav-stacked">
+										<li><a href="../index"> HOMEPAGE</a></li>
+                    <li><a href="http://stackoverflow.com/"> ABOUT US</a></li>
+										<li><a href="http://stackoverflow.com/"> HELP</a></li>
+                    <li><a href="http://stackoverflow.com/"> CONTACTS</a></li>
+            </ul>
+    </div>
+		<a class = "socialicon"  href="https://plus.google.com/u/1/102008562030379446121/posts"><i class="fa fa-google-plus fa-lg"></i></a>
+		<a class = "socialicon" href="https://www.facebook.com/vivienne.ji.9"><i class="fa fa-facebook fa-lg "></i></a>
+		<a class = "socialicon" href="https://instagram.com/zherzher1992/"><i class="fa fa-instagram fa-lg"></i></a>
+		<a class = "socialicon" href="https://www.linkedin.com/profile/view?id=AAIAABGpTxIBuzbOv72Yslp24WNdqVVbkyDCkzo&trk=nav_responsive_tab_profile"><i class="fa fa-linkedin fa-lg"></i></a>
+		<div id = "contact">
+		<p>1586 Murfin Ave, Ann Arbor, MI</p>
+		<p>Phone: (734)834-8250, (734)834-7901</p>
+		<p>Email: xiaofji@umich.com, siyuchen@umich.com</p>
+	</div>
+		<p id = "copyright">Copyright &copy; Xiaofan Ji and Siyu Chen. All rights reserved.</p>
+<!-- Sidebar End -->
+</div>
+	    <a class="navbar-brand" href="./index.html"></a>
+	  </div>
+			<div id = "logsign">
+				{% if current_user.is_authenticated %}
+					Hi
+					{{current_user.username}}
+					welcome back!
+					<a href="/personalpage">My home page</a>
+					<form class="form-logout" role="form" method="post" action="" id = "logout">
 
-			<button class="btn btn-sm btn-success" type="submit" name="submit" value="logout">logout</button>
-			</form>
-			<a href="/personalpage">My home page</a>
-		</p>
+					<button class="btn btn-sm btn-success" type="submit" name="submit" value="logout"><i class="fa fa-sign-out"></i> logout</button>
+					</form>
+					{% else %}
+					<form class="form-signin" role="form" method="post" action="" id = "login">
+						{{ form.csrf_token }}
 
-			{% else %}
-			<form class="form-signin" role="form" method="post" action="" id = "login">
-				{{ form.csrf_token }}
-				<p>
-					{{ form.username(placeholder="username") }}
-					<span class="error">
-						{% if form.username.errors %}
-							{% for error in form.username.errors %}
-								{{ error }}
-							{% endfor %}
-						{% endif %}
-					</span>
-				</p>
-				<p>
-				{{ form.password(placeholder="password") }}
-					<span class="error">
-						{% if form.password.errors %}
-							{% for error in form.password.errors %}
-								{{ error }}
-							{% endfor %}
-						{% endif %}
-					</span>
-				</p>
-				<button class="btn btn-sm btn-success" type="submit" name="submit" value="login">Sign in</button>
-				<button class="btn btn-sm btn-success" type="submit" name="submit" value="signup">Sign up</button>
+							{{ form.username(placeholder="username") }}
+							<span class="error">
+								{% if form.username.errors %}
+									{% for error in form.username.errors %}
+										{{ error }}
+									{% endfor %}
+								{% endif %}
+							</span>
 
 
-			</form>
+						{{ form.password(placeholder="password") }}
+							<span class="error">
+								{% if form.password.errors %}
+									{% for error in form.password.errors %}
+										{{ error }}
+									{% endfor %}
+								{% endif %}
+							</span>
 
-			{% endif %}
+						<button class="btn btn-sm btn-success" type="submit" name="submit" value="login"><i class="fa fa-sign-in"></i> Sign in</button>
+						<button class="btn btn-sm btn-success" type="submit" name="submit" value="signup"><i class="fa fa-user-plus"></i> Sign up</button>
 
-		</div>
 
-		<br>
-		 <h2 id = "title">Chinese Cooking Alchemy</h2>
-		 <h4 id = "subtitle">The best way to learn about Chinese dishes.</h4>
+					</form>
+
+					{% endif %}
+
 	</header>
 
 	<div class="container">
@@ -86,37 +103,6 @@
 	{%endblock%}
 
 <footer>
-	<div class = "footercontant">
-				<form class = "message" action="xiaofji@umich.edu" method="post" enctype="text/plain">
-					<h4 class = "messaget">Drop me a message here</h4>
-					<table>
-						<tr>
-							<td><div>Name:</div></td>
-							<td><input type="text" name="name" size="20"></td>
-							<td><input type="submit" name="submit" value="Submit"></td>
-						</tr>
-						<tr>
-							<td><div>Email:</div></td>
-							<td><input type="text" name="email" size="20"></td>
-							<td><input type="reset" name="reset" value="Reset"></td>
-						</tr>
-						<tr>
-							<td><div>Message:</div></td>
-							<td><textarea name="Message" cols="25" wrap="hard" rows="2"></textarea></td>
-						</tr>
-					</table>
-				</form>
-
-      	<ul class="nav nav-stacked pull-right">
-					<li><a href="https://plus.google.com/u/1/102008562030379446121/posts"><i class="fa fa-google-plus fa-lg fa-inverse"></i></a></li>
-					<li><a href="https://www.facebook.com/vivienne.ji.9"><i class="fa fa-facebook fa-lg fa-inverse"></i></a></li>
-					<li><a href="https://instagram.com/zherzher1992/"><i class="fa fa-instagram fa-lg fa-inverse"></i></a></li>
-					<li><a href="https://www.linkedin.com/profile/view?id=AAIAABGpTxIBuzbOv72Yslp24WNdqVVbkyDCkzo&trk=nav_responsive_tab_profile"><i class="fa fa-linkedin fa-lg fa-inverse"></i></a></li>
-      	</ul>
-	</div>
-	<div class = "copyright text-center">
-		<p>Copyright &copy; Xiaofan Ji. All rights reserved.</p>
-	</div>
 </footer>
 </body>
 </html>
