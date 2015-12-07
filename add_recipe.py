@@ -2,9 +2,6 @@ from project import db
 from project.models import User, Recipe, Association, Ingre, Recipe_ingre
 
 
-# create the database and the db table
-# insert data
-
 
 
 user=User.query.filter_by(username="xiaofan").first()
