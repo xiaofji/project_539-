@@ -172,7 +172,6 @@ p.speech:before{
   text-align: center;
 }
 
-<<<<<<< HEAD
 .welcome{
   display: inline;
 }
@@ -180,8 +179,6 @@ p.speech:before{
 footer{
   margin-left: 200px;
 }
-=======
->>>>>>> master
 
 ul.img-list {
   list-style-type: none;
@@ -238,7 +235,6 @@ span.text-content p.clickToLearn {
   font-size: small;
   font-weight: normal;
   font-style: italic;
-<<<<<<< HEAD
 }
 #sidebar {
 width:200px;
@@ -393,7 +389,5 @@ z-index: 2;
   .nav-side-menu .menu-list .menu-content {
     display: block;
   }
-=======
 
->>>>>>> master
 }
