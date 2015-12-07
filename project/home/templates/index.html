@@ -1,7 +1,7 @@
 {% extends "base.html"%}
 {% block content %}
 <div class = "content">
-		<img id = "displayimg" src="static/img/eightcai.jpg" alt="eightcu">
+		<img id = "displayimg" class = "img-rounded" src="static/img/eightcai.jpg" alt="eightcu">
     <ul id = "thum">
 			<li class = "dish" id = "eight" onmouseover="changeimage(this.id)" >Regional Cuisines of China </li>
 			<li class = "dish" id = "yue" onmouseover="changeimage(this.id)" >Sliced ​​cold chicken </li>
@@ -18,7 +18,7 @@
 			<p id = "long">Sichuan and Hunan cuisines: hot spice. Anhui and Fujian cuisines: inclusion of wild foods from their mountains. Guangdong (Cantonese), Fujian, Zhejiang, Jiangsu: great seafood, and generally sweet and light flavors. Shandong Cuisine: fresh and salty with a lot of seafood dishes.</p>
 			<p id = "loginplease">
 					<a id = "learnlink" {% if current_user.is_authenticated %} class = "visible" {% else %} class = "hidden" {% endif %} href="/yuecai/chicken"></a>
-					<a id = "loginlink" {% if current_user.is_authenticated %} class = "hidden" {% else %} class = "visible" {% endif %} href = "/login"></a> <span {% if current_user.is_authenticated %} class = "hidden" {% else %} class = "visible" {% endif %} id = "logintext"></span>
+					<a id = "loginlink" {% if current_user.is_authenticated %} class = "hidden" {% else %} class = "visible" {% endif %} href = "/register"></a> <span {% if current_user.is_authenticated %} class = "hidden" {% else %} class = "visible" {% endif %} id = "logintext"></span>
 			</p>
 		</div>
 </div>

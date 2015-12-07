@@ -1,9 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
+<<<<<<< HEAD
+<style>
+#logsign{
+  display:none;
+}
+</style>
+<div class = "content">
+  <img id = "back" src="../static/img/logsignbackground.jpg" alt="back">
+  <div id = "loginpage">
+    {% if current_user.is_authenticated %}
+      <h2>You have already logged in</h2>
+    {% else %}
+    <h3>Please login</h3>
+    <br>
+    <form class="form-signin" role="form" method="post" action="">
+      {{ form.csrf_token }}
+      <p>
+        {{ form.username(placeholder="username") }}
+        <span class="error">
+          {% if form.username.errors %}
+            {% for error in form.username.errors %}
+              {{ error }}
+            {% endfor %}
+          {% endif %}
+        </span>
+      </p>
+      <p>
+      {{ form.password(placeholder="password") }}
+        <span class="error">
+          {% if form.password.errors %}
+            {% for error in form.password.errors %}
+              {{ error }}
+            {% endfor %}
+          {% endif %}
+        </span>
+      </p>
+      <button class="btn btn-sm btn-success" type="submit">Log in</button>
+    </form>
+    {% endif %}
+  </div>
+  <div id = "registerpage">
+<h3>New customer? Please Register</h3>
+=======
 
 <div class = "content" id="register">
 <h1>Please Register</h1>
+>>>>>>> master
 <br>
 <form class="form-signin" role="form" method="post" action="">
   {{ form.csrf_token }}
@@ -40,5 +84,6 @@
   </p>
   <button class="btn btn-sm btn-success" type="submit">Register!</button>
 </form>
+</div>
 </div>
 {% endblock %}
