@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class = "content">
+<div class = "content" id="loginpage">
 {% if current_user.is_authenticated %}
   <h2>You have already logged in</h2>
 {% else %}
@@ -29,7 +29,11 @@
       {% endif %}
     </span>
   </p>
-  <button class="btn btn-sm btn-success" type="submit">Sign in</button>
+  <button class="btn btn-sm btn-success" type="submit" name="submit" value="login"><i class="fa fa-sign-in"></i><h5 class = "welcome"> Sign in</h5></button>
+  <br>
+  <br>
+  <p id="signuptext"> Do not have an account? Sign up today!</p>
+  <button class="btn btn-sm btn-success" type="submit" name="submit" value="signup"><i class="fa fa-user-plus"></i><h5 class = "welcome"> Sign up</h5></button>
 </form>
 {% endif %}
 </div>
