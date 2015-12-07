@@ -29,23 +29,26 @@ def login():
     error = None
     form = LoginForm(request.form)
     if request.method == 'POST':
-        if form.validate_on_submit():
-            user = User.query.filter_by(username=request.form['username']).first()
-            print user
-            if user is not None and bcrypt.check_password_hash(
-                user.password, request.form['password']
-            ):
-                login_user(user)
-                return redirect(url_for('home.personalpage'))
+        if request.form['submit'] == 'login':
+            if form.validate_on_submit():
+                user = User.query.filter_by(username=request.form['username']).first()
+                print user
+                if user is not None and bcrypt.check_password_hash(
+                    user.password, request.form['password']
+                ):
+                    login_user(user)
+                    return redirect(url_for('home.personalpage'))
+                else:
+                    error = 'Invalid username or password.'
+        elif request.form['submit'] == 'signup':
+            return redirect(url_for('users.register'))
 
-            else:
-                error = 'Invalid username or password.'
     return render_template('login.html', form=form, error=error, user=current_user)
 
 
 
 
-@users_blueprint.route('/register/', methods=['GET', 'POST'])
+@users_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():

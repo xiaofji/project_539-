@@ -2,6 +2,19 @@ body{
   background-color:rgb(238, 229, 195);
   min-width: 750px;
 }
+
+#dvLoading
+{
+   height: 20px;
+   width: 20%;
+   position: fixed;
+   z-index: 1000;
+   left: 50%;
+   top: 50%;
+   margin: -25px 0 0 -25px;
+ }
+
+
 #title{
   font-family: "Arial Black", Gadget, sans-serif;
   padding-top: 20px;
@@ -14,7 +27,15 @@ body{
 
 }
 
+<<<<<<< HEAD
 #displayimg, #cook, #commingsoon, #back{
+=======
+#signuptext {
+  color:#3399ff;
+}
+
+#displayimg, #cook, #commingsoon{
+>>>>>>> master
   width:100%;
 }
 #logsign{
@@ -31,6 +52,25 @@ body{
   margin-left: 200px;
 }
 
+
+#register h1{
+  margin-left: 40%;
+  margin-right: auto;
+}
+
+#register form{
+  margin-left: 45%;
+  margin-right: auto;
+}
+#loginpage h1{
+  margin-left: 40%;
+  margin-right: auto;
+}
+
+#loginpage form{
+  margin-left: 40%;
+  margin-right: auto;
+}
 
 #thum{
   background:rgba(255,255,255,0.5);
