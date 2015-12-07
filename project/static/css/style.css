@@ -2,6 +2,19 @@ body{
   background-color:rgb(238, 229, 195);
   min-width: 750px;
 }
+
+#dvLoading
+{
+   height: 20px;
+   width: 20%;
+   position: fixed;
+   z-index: 1000;
+   left: 50%;
+   top: 50%;
+   margin: -25px 0 0 -25px;
+ }
+
+
 #title{
   font-family: "Arial Black", Gadget, sans-serif;
   padding-top: 20px;

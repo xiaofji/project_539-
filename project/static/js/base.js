@@ -7,6 +7,9 @@ var ingres;
 var foodstep;
 
 
+$(window).load(function(){
+  $('#dvLoading').fadeOut(1000);
+});
 
 function changeimage(id)
 {
