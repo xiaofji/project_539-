@@ -16,16 +16,39 @@
 <body>
 
 <header>
-<div id="sidebar" role="navigation">
+	<div class="nav-side-menu">
+    <div class="brand" id = "brand">Chinese Cooking Alchemy</div>
+		<img id = "logo"  src = "../static/img/logo.jpg">
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+        <div class="menu-list">
+
+            <ul id="menu-content" class="menu-content collapse out">
+							<li><a href="/"><i class="fa fa-gift fa-lg"></i> HOMEPAGE</a></li>
+              <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                  <a href="#"><i class="fa fa-gift fa-lg"></i> ABOUT US <span class="arrow"></span></a>
+              </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li><a href="http://www-personal.umich.edu/~siyuchen/portfolio/"  target="_blank">Siyu Chen</a></li>
+                    <li><a href="http://www-personal.umich.edu/~xiaofji/portfolio/"  target="_blank">Xiaofan Ji</a></li>
+                </ul>
+							<li><a href="#"><i class="fa fa-gift fa-lg"></i> HELP</a></li>
+							<li><a href="#"><i class="fa fa-gift fa-lg"></i> CONTACTS</a></li>
+
+            </ul>
+     </div>
+</div>
+<!-- <div id="sidebar" role="navigation">
 	<img id = "logo" src = "../static/img/logo.jpg">
     <div id="sidebar-nav">
             <ul class="nav nav-stacked">
 										<li><a href="../index"> HOMEPAGE</a></li>
                     <li><a href="http://stackoverflow.com/"> ABOUT US</a></li>
 										<li><a href="http://stackoverflow.com/"> HELP</a></li>
-                    <li><a href="http://stackoverflow.com/"> CONTACTS</a></li>
+
             </ul>
     </div>
+		<p id = "contitle"> CONTACTS:</p>
 		<a class = "socialicon"  href="https://plus.google.com/u/1/102008562030379446121/posts"><i class="fa fa-google-plus fa-lg"></i></a>
 		<a class = "socialicon" href="https://www.facebook.com/vivienne.ji.9"><i class="fa fa-facebook fa-lg "></i></a>
 		<a class = "socialicon" href="https://instagram.com/zherzher1992/"><i class="fa fa-instagram fa-lg"></i></a>
@@ -36,19 +59,20 @@
 		<p>Email: xiaofji@umich.com, siyuchen@umich.com</p>
 	</div>
 		<p id = "copyright">Copyright &copy; Xiaofan Ji and Siyu Chen. All rights reserved.</p>
-<!-- Sidebar End -->
-</div>
+</div> -->
 	    <a class="navbar-brand" href="./index.html"></a>
 	  </div>
 			<div id = "logsign">
+				<h4 class = "welcome">
 				{% if current_user.is_authenticated %}
-					Hi
+					Hi,
 					{{current_user.username}}
 					welcome back!
-					<a href="/personalpage">My home page</a>
+				</h3 >
+					<a href="/personalpage"> <h4 class = "welcome">My home page </h4></a>
 					<form class="form-logout" role="form" method="post" action="" id = "logout">
 
-					<button class="btn btn-sm btn-success" type="submit" name="submit" value="logout"><i class="fa fa-sign-out"></i> logout</button>
+					<button class="btn btn-sm btn-success" type="submit" name="submit" value="logout"><i class="fa fa-sign-out"></i> <h5 class = "welcome">logout</h5></button>
 					</form>
 					{% else %}
 					<form class="form-signin" role="form" method="post" action="" id = "login">
@@ -73,8 +97,8 @@
 								{% endif %}
 							</span>
 
-						<button class="btn btn-sm btn-success" type="submit" name="submit" value="login"><i class="fa fa-sign-in"></i> Sign in</button>
-						<button class="btn btn-sm btn-success" type="submit" name="submit" value="signup"><i class="fa fa-user-plus"></i> Sign up</button>
+						<button class="btn btn-sm btn-success" type="submit" name="submit" value="login"><i class="fa fa-sign-in"></i><h5 class = "welcome"> Sign in</h5></button>
+						<button class="btn btn-sm btn-success" type="submit" name="submit" value="signup"><i class="fa fa-user-plus"></i><h5 class = "welcome"> Sign up</h5></button>
 
 
 					</form>
@@ -103,6 +127,7 @@
 	{%endblock%}
 
 <footer>
+	<p class = "hidden-lg text-center">Copyright &copy; Xiaofan Ji and Siyu Chen. All rights reserved.</p>
 </footer>
 </body>
 </html>
