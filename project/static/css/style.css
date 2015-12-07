@@ -14,7 +14,7 @@ body{
 
 }
 
-#displayimg, #cook, #commingsoon{
+#displayimg, #cook, #commingsoon, #back{
   width:100%;
 }
 #logsign{
@@ -159,17 +159,29 @@ p.speech:before{
   margin-left: 15px;
 }
 #contact{
-  margin-top: 20px;
-  padding: 15px;
-  border-top: dashed;
-  border-bottom: dashed;
-  z-index: 0;
+  margin-left: 7px;
+  margin-top: 10px;
 }
 
 #copyright{
   margin-top: 10px;
   font-size: 12px;
   text-align: center;
+}
+
+#loginpage{
+  display: inline;
+  position: absolute;
+  top:30px;
+  left: 50px;
+}
+#registerpage{
+  position: absolute;
+  display: inline;
+  top:30px;
+  left: 350px;
+  padding-left: 60px;
+  border-left: dashed #16a085;
 }
 
 .welcome{
@@ -235,18 +247,6 @@ span.text-content p.clickToLearn {
   font-size: small;
   font-weight: normal;
   font-style: italic;
-}
-#sidebar {
-width:200px;
-background-color: #16a085;
-color: white;
-height: 100%;
-padding: 0;
-position: fixed;
-left: 0;
-top: 0;
-z-index: 2;
-
 }
 .nav-side-menu {
   overflow: auto;
@@ -358,7 +358,9 @@ z-index: 2;
   .content{
     margin-left: 0px;
   }
-
+  footer{
+    margin-left: 0px;
+  }
   .nav-side-menu {
     position: relative;
     width: 100%;

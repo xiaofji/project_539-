@@ -25,7 +25,7 @@ function changeimage(id)
   }
   else{
     document.getElementById("learnlink").innerHTML = "Learn how to cook.";
-    document.getElementById("loginlink").innerHTML = "log in";
+    document.getElementById("loginlink").innerHTML = "log in or Sign up";
     document.getElementById("logintext").innerHTML = "to learn how to cook.";
     if(id == "yue"){
       document.getElementById("short").innerHTML = "粤菜 Yuècài---Sweeter, favoring braising and stewing, adding various mild sauces.";
