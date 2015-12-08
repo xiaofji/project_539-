@@ -74,7 +74,7 @@
 	  </div>
 			<div id = "logsign">
 				<h4 class = "welcome">
-				{% if current_user.is_authenticated %}
+				{% if not current_user.is_anonymous %}
 					Hi,
 					{{current_user.username}}
 					Welcome back!
