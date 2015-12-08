@@ -9,7 +9,7 @@
 <div class = "content">
   <img id = "back" src="../static/img/logsignbackground.jpg" alt="back">
 
-    {% if not current_user.is_anonymous %}
+    {% if current_user.is_authenticated %}
     <div id = "alreadylogin">
       <h2>You have already logged in</h2>
       <a href="/personalpage">Go to your personalpage</a>
