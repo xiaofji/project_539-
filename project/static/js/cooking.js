@@ -11,7 +11,7 @@ $(function(){
   }
   else{
     $("#brand").text("");
-    $("#logo").attr("src","static/img/logo.jpg");
+    $("#logo").attr("src","../static/img/logo.jpg");
     console.log("asd");
 
   }

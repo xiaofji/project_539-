@@ -41,7 +41,7 @@ def default():
                 else:
                     error = 'Invalid username or password.'
         elif request.form['submit'] == 'signup':
-            return redirect(url_for('users.register'))
+            return redirect(url_for('users.login'))
         elif request.form['submit'] == 'logout':
             logout_user()
             return render_template("index.html", name = "index", title = "Chinese Cooking", form=form, user=current_user)
@@ -84,7 +84,7 @@ def yuecai(LearningRecipeName):
                 else:
                     error = 'Invalid username or password.'
         elif request.form['submit'] == 'signup':
-            return redirect(url_for('users.register'))
+            return redirect(url_for('users.login'))
         elif request.form['submit'] == 'logout':
             logout_user()
             return redirect(url_for("home.default"))
@@ -99,6 +99,7 @@ def yuecai(LearningRecipeName):
 
                     # commit the changes
                     db.session.commit()
+            return redirect(url_for("home.personalpage"))
     if LearningRecipeName == "sliced_cold_chicken" or LearningRecipeName == "bitter_shrimp_ball" or LearningRecipeName == "sichuan_fish":
         return render_template("yuecai.html", title = "Cooking", form=form, instruction=instruction, user=current_user, error=error, LearningRecipeName = LearningRecipeName, ingres=ingres, ingresurl=ingresurl)
     else:
@@ -131,7 +132,7 @@ def personalpage():
                 else:
                     error = 'Invalid username or password.'
         elif request.form['submit'] == 'signup':
-            return redirect(url_for('users.register'))
+            return redirect(url_for('users.login'))
         elif request.form['submit'] == 'logout':
             logout_user()
             return redirect(url_for('home.default'))

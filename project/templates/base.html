@@ -19,7 +19,10 @@
 <header>
 	<div class="nav-side-menu">
     <div class="brand" id = "brand">Chinese Cooking Alchemy</div>
-		<img id = "logo"  src = "../static/img/logo.jpg">
+		<img id = "logo"  src = "../static/img/logo.jpg" alt="logo">
+
+		<!-- <img id = "logo"  src = "{{ url_for('static', filename = 'img/logo.jpg') }}" alt="logo"> -->
+
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
         <div class="menu-list">
@@ -74,9 +77,9 @@
 				{% if current_user.is_authenticated %}
 					Hi,
 					{{current_user.username}}
-					welcome back!
+					Welcome back!
 				</h3 >
-					<a href="/personalpage"> <h4 class = "welcome">My home page </h4></a>
+					<a href="/personalpage"> <h4 class = "welcome">My personal page </h4></a>
 					<form class="form-logout" role="form" method="post" action="" id = "logout">
 
 					<button class="btn btn-sm btn-success" type="submit" name="submit" value="logout"><i class="fa fa-sign-out"></i> <h5 class = "welcome">logout</h5></button>

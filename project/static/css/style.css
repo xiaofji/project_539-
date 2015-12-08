@@ -26,16 +26,11 @@ body{
   padding-left: 20px;
 
 }
-
-<<<<<<< HEAD
-#displayimg, #cook, #commingsoon, #back{
-=======
 #signuptext {
   color:#3399ff;
 }
 
-#displayimg, #cook, #commingsoon{
->>>>>>> master
+#displayimg, #cook, #commingsoon, #back{
   width:100%;
 }
 #logsign{
@@ -209,7 +204,7 @@ p.speech:before{
   text-align: center;
 }
 
-#loginpage{
+#loginpage, #alreadylogin{
   display: inline;
   position: absolute;
   top:30px;
