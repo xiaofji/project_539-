@@ -180,4 +180,4 @@ def contact():
     return redirect(url_for("home.contact"))
 
   elif request.method == 'GET':
-    return render_template('contact.html', form=forml, formc=form)
+    return render_template('contact.html',name = "contact", form=forml, formc=form)
