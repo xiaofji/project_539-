@@ -25,39 +25,34 @@ users_blueprint = Blueprint(
 ################
 
 @users_blueprint.route('/login', methods=['GET', 'POST'])
-def login():
-    error = None
-    form = LoginForm(request.form)
-    if request.method == 'POST':
-        if request.form['submit'] == 'login':
-            if form.validate_on_submit():
-                user = User.query.filter_by(username=request.form['username']).first()
-                print user
-                if user is not None and bcrypt.check_password_hash(
-                    user.password, request.form['password']
-                ):
-                    login_user(user)
-                    return redirect(url_for('home.personalpage'))
-                else:
-                    error = 'Invalid username or password.'
-        elif request.form['submit'] == 'signup':
-            return redirect(url_for('users.register'))
-
-    return render_template('login.html', form=form, error=error, user=current_user)
-
-
-
-
 @users_blueprint.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegisterForm()
-    if form.validate_on_submit():
-        user = User(
-            username=form.username.data,
-            password=form.password.data
-        )
-        db.session.add(user)
-        db.session.commit()
-        login_user(user)
-        return redirect(url_for('home.default'))
-    return render_template('register.html', form=form, user=current_user)
+def login():
+    formr = RegisterForm(request.form)
+    forms = LoginForm(request.form)
+
+    error = None
+
+    if request.method == 'POST':
+            if request.form['submit'] == 'login':
+                if forms.validate_on_submit():
+                    user = User.query.filter_by(username=request.form['username']).first()
+                    print user
+                    if user is not None and bcrypt.check_password_hash(
+                        user.password, request.form['password']
+                    ):
+                        login_user(user)
+                        return redirect(url_for('home.personalpage'))
+                    else:
+                        error = 'Invalid username or password.'
+            elif request.form['submit'] == 'signup':
+                if formr.validate_on_submit():
+                    user = User(
+                        username=formr.username.data,
+                        password=formr.password.data
+                    )
+                    db.session.add(user)
+                    db.session.commit()
+                    login_user(user)
+                    return redirect(url_for('home.default'))
+
+    return render_template('register.html', formr=formr, form=forms, user=current_user)
