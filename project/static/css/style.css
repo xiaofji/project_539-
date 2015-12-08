@@ -397,15 +397,15 @@ span.text-content p.clickToLearn {
 }
 .nav-side-menu ul .sub-menu li.active,
 .nav-side-menu li .sub-menu li.active {
-  color: #107360;
+  color: #16a085;
 }
 .nav-side-menu ul .sub-menu li.active a,
 .nav-side-menu li .sub-menu li.active a {
-  color: #107360;
+  color: #16a085;
 }
 .nav-side-menu ul .sub-menu li,
 .nav-side-menu li .sub-menu li {
-  background-color: #107360;
+  background-color: #16a085;
   border: none;
   line-height: 28px;
   border-bottom: 1px solid #23282e;
