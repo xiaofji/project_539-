@@ -76,7 +76,6 @@ function changeimage(id)
 }
 
 function rmSignForm(){
-  console.log("in");
   if(document.getElementById("register") !== null) {
     document.getElementById("logsign").style.display = "none";
   }

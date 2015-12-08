@@ -7,12 +7,10 @@ $(function(){
   {
     $("#brand").text("Chinese Cooking Alchemy");
     $("#logo").attr("src","");
-    console.log("asd");
   }
   else{
     $("#brand").text("");
     $("#logo").attr("src","../static/img/logo.jpg");
-    console.log("asd");
 
   }
 
