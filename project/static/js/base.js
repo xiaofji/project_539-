@@ -28,13 +28,9 @@ function changeimage(id)
   }
   else{
     document.getElementById("learnlink").innerHTML = "Learn how to cook.";
-<<<<<<< HEAD
     document.getElementById("loginlink").innerHTML = "log in or Sign up";
     document.getElementById("logintext").innerHTML = "to learn how to cook.";
-=======
-    document.getElementById("loginlink").innerHTML = "Log in to learn how to cook.";
-    document.getElementById("logintext").innerHTML = "";
->>>>>>> master
+
     if(id == "yue"){
       document.getElementById("short").innerHTML = "粤菜 Yuècài---Sweeter, favoring braising and stewing, adding various mild sauces.";
       document.getElementById("long").innerHTML = "Cantonese food is the most popular style internationally.Guangdong Province and Hong Kong are noted for fine seafood dishes and rice dishes. They eat a very wide variety of foods. The dishes they serve don't have strong flavors since it is lightly seasoned, and they often tend to be a little sweet.";
