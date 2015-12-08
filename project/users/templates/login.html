@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class = "content" id="loginpage">
-{% if current_user.is_authenticated %}
+{% if current_user.is_authenticated() %}
   <h2>You have already logged in</h2>
 {% else %}
 <h1>Please login</h1>
