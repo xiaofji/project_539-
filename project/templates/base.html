@@ -36,40 +36,17 @@
                     <li><a href="http://www-personal.umich.edu/~siyuchen/portfolio/"  target="_blank">Siyu Chen</a></li>
                     <li><a href="http://www-personal.umich.edu/~xiaofji/portfolio/"  target="_blank">Xiaofan Ji</a></li>
                 </ul>
-							<li><a href="#"><i class="fa fa-question fa-lg"></i> HELP</a></li>
-							<li><a href="#"><i class="fa fa-envelope-o fa-lg"></i> CONTACT US</a></li>
+							<li><a href="/contact"><i class="fa fa-envelope-o fa-lg"></i> CONTACT US</a></li>
 							<div id = "contact">
 							<p>1586 Murfin Ave, Ann Arbor, MI</p>
 							<p>Phone: (734)834-8250, (734)834-7901</p>
 							<p>Email: xiaofji@umich.com, siyuchen@umich.com</p>
-							<p class = "visible-lg">Copyright &copy; Xiaofan Ji and Siyu Chen. All rights reserved.</p>
+							<p id = "copyright" class = "visible-lg">Copyright &copy; Xiaofan Ji and Siyu Chen. All rights reserved.</p>
 						</div>
 						</ul>
 
      </div>
 </div>
-<!-- <div id="sidebar" role="navigation">
-	<img id = "logo" src = "../static/img/logo.jpg">
-    <div id="sidebar-nav">
-            <ul class="nav nav-stacked">
-										<li><a href="../index"> HOMEPAGE</a></li>
-                    <li><a href="http://stackoverflow.com/"> ABOUT US</a></li>
-										<li><a href="http://stackoverflow.com/"> HELP</a></li>
-
-            </ul>
-    </div>
-		<p id = "contitle"> CONTACTS:</p>
-		<a class = "socialicon"  href="https://plus.google.com/u/1/102008562030379446121/posts"><i class="fa fa-google-plus fa-lg"></i></a>
-		<a class = "socialicon" href="https://www.facebook.com/vivienne.ji.9"><i class="fa fa-facebook fa-lg "></i></a>
-		<a class = "socialicon" href="https://instagram.com/zherzher1992/"><i class="fa fa-instagram fa-lg"></i></a>
-		<a class = "socialicon" href="https://www.linkedin.com/profile/view?id=AAIAABGpTxIBuzbOv72Yslp24WNdqVVbkyDCkzo&trk=nav_responsive_tab_profile"><i class="fa fa-linkedin fa-lg"></i></a>
-		<div id = "contact">
-		<p>1586 Murfin Ave, Ann Arbor, MI</p>
-		<p>Phone: (734)834-8250, (734)834-7901</p>
-		<p>Email: xiaofji@umich.com, siyuchen@umich.com</p>
-	</div>
-		<p id = "copyright">Copyright &copy; Xiaofan Ji and Siyu Chen. All rights reserved.</p>
-</div> -->
 	    <a class="navbar-brand" href="./index.html"></a>
 	  </div>
 			<div id = "logsign">
@@ -125,11 +102,6 @@
 		{% if error %}
 			<p class="error"><strong>Error:</strong> {{ error }}</p>
 		{% endif %}
-
-		<!-- messages -->
-		{% for message in get_flashed_messages() %}
-			{{ message }}
-		{% endfor %}
 	</div>
 
 	{%block content%}

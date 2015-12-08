@@ -2,14 +2,25 @@
 #### imports ####
 #################
 
-from flask import render_template, Blueprint, request, redirect, url_for
+from flask import Flask, render_template, Blueprint, request, redirect, url_for, flash
+from flask_mail import Message, Mail
 from flask.ext.login import login_required, current_user, login_user, logout_user
 
-from project import db
+from project import db, app
 from project.models import User, Recipe, Association, Ingre, Recipe_ingre, bcrypt
-from .forms import AddRecipeForm
+from .forms import AddRecipeForm, ContactForm
 from project.users.forms import LoginForm
 import json
+
+mail = Mail()
+
+
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = 'umsiwebdesign@gmail.com'
+app.config["MAIL_PASSWORD"] = '105sstate'
+mail.init_app(app)
 ################
 #### config ####
 ################
@@ -110,7 +121,6 @@ def yuecai(LearningRecipeName):
 @home_blueprint.route('/personalpage', methods=['GET', 'POST'])
 @login_required
 def personalpage():
-
     error = None
     recipes = None
     form = LoginForm(request.form)
@@ -149,3 +159,25 @@ def personalpage():
     # return render_template('personalpage.html', recipes=recipes, recipesNotLearnt = recipesNotLearnt, form=form, user=current_user)  # render a template
 
     return render_template('personalpage.html', title=title, recipes=recipesname, recipesNotLearnt = recipesNotLearntname, form=form, user=current_user)  # render a template
+
+@home_blueprint.route('/contact', methods=['GET', 'POST'])
+def contact():
+  form = ContactForm()
+  forml = LoginForm()
+  if request.method == 'POST':
+    msg = Message(form.subject.data, sender='contact@example.com', recipients=['xiaofji@umich.edu'])
+    msg.body = """
+      From: %s <%s>
+      %s
+      """ % (form.name.data, form.email.data, form.message.data)
+    mail.send(msg)
+    msg_rep = Message("Confirmation", sender='contact@example.com', recipients=[form.email.data])
+    msg_rep.body = """
+      Thank you for your message!
+      """
+    mail.send(msg_rep)
+    flash("Thank you for sumitting your Message!")
+    return redirect(url_for("home.contact"))
+
+  elif request.method == 'GET':
+    return render_template('contact.html', form=forml, formc=form)
