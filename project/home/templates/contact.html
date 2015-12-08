@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+#logsign{
+  display:none;
+}
+</style>
+<div class = "content">
+  <img id = "formback" src="../static/img/conbackground.jpg" alt="back">
+  <div id = "form">
+    <h3>Contact us:</h3>
+  <form  action="" method=post>
+
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+         <h4 id = "sent">{{ message }}</h4>
+         {% endfor %}
+       {% endif %}
+       {% endwith %}
+  {{ formc.hidden_tag() }}
+  <br>
+    {{ formc.name.label }}
+    {{ formc.name }}
+    <br>
+    {{ formc.email.label }}
+    {{ formc.email }}
+    <br>
+    {{ formc.subject.label }}
+    {{ formc.subject }}
+    <br>
+    {{ formc.message.label }}
+    {{ formc.message }}
+    <br>
+    {{ formc.submit }}
+
+  </div>
+</div>
+{% endblock %}
